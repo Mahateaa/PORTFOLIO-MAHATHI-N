@@ -211,12 +211,36 @@
 <div class="contact-form" id="contact">
   
   <form action="#" method="post">
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="email" placeholder="Your Email" required>
-    <textarea name="message" placeholder="Your Message" required></textarea>
+    <input type="text" name="name" id = "name" placeholder="Your Name" required>
+    <input type="email" name="email" id="email" placeholder="Your Email" required>
+    <textarea name="message" id="message" placeholder="Your Message" required></textarea>
     <button type="submit">Send Message</button>
   </form>
-</div> <a href="https://drive.google.com/file/d/1WXY3-c-OTZAVMaj9VlqEL-dcHNUXrLQB/view?usp=sharing" download="Mahathi_Nagalapuram_Resume.pdf" class="resume-button"> 📄 Download My Resume </a>
+</div> <p id="responseMessage"></p>
+
+<script>
+    document.getElementById("contact").addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        let formData = {
+            name: document.getElementById("name").value,
+            contact: document.getElementById("email").value,
+            message: document.getElementById("message").value
+        };
+
+        fetch("https://mahateaa.github.io/PORTFOLIO-MAHATHI-N/", {
+            method: "POST",
+            body: JSON.stringify(formData),
+            headers: { "Content-Type": "application/json" }
+        })
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("responseMessage").innerText = data.message;
+            document.getElementById("contactForm").reset();
+        })
+        .catch(error => console.error("Error:", error));
+    });
+</script><a href="D:\myfirstwebpage\Nagalapuram_Mahathi_Resume.pdf" download="Mahathi_Nagalapuram_Resume.pdf" class="resume-button"> 📄 Download My Resume </a>
 <br>
   <br>
 <!-- Footer Section -->
