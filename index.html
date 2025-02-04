@@ -217,20 +217,7 @@
     <button type="submit">Send Message</button>
   </form>
 </div> <p id="responseMessage"></p>
-<script>
-  document.getElementById("contactForm").addEventListener("submit", function(e) {
-    e.preventDefault();
-    
-    let formData = new FormData(this);
-    fetch("https://script.google.com/macros/s/AKfycbwViw1Vte6nVNujhLbFYOvkChkAy9UrhQCkh7Pwrs73hF-Dfwf03plZoYQraRWnrwVo/exec", {
-      method: "POST",
-      body: formData
-    })
-    .then(response => response.json())
-    .then(data => alert(data.message))
-    .catch(error => alert("Error submitting the form."));
-  });
-</script><a href="D:\myfirstwebpage\Nagalapuram_Mahathi_Resume.pdf" download="Mahathi_Nagalapuram_Resume.pdf" class="resume-button"> 📄 Download My Resume </a>
+<a href="D:\myfirstwebpage\Nagalapuram_Mahathi_Resume.pdf" download="Mahathi_Nagalapuram_Resume.pdf" class="resume-button"> 📄 Download My Resume </a>
 <br>
   <br>
 <!-- Footer Section -->
